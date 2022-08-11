@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form action="app.php?filtered=true" method="POST">
+		<ul>
+			<li>
+				<label>Name</label>
+				<input type="text" value="Kiril" name="name">
+			</li>
+			<li>
+				<label>Email</label>
+				<input type="text" value="hello@nonamez.name" name="email">
+			</li>
+			<li>
+				<textarea cols="30" rows="10" name="content">Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Asperiores, corporis ipsum veritatis. Alias ipsam quia cum atque quas quaerat fugiat quidem odio in? Pariatur, animi, sit modi porro sint ut.</textarea>
+			</li>
+			<!-- <li>
+				<label for="newsletter">Newsletter</label>
+				<input type="checkbox" id="newsletter" name="newsletter" value="1">
+			</li> -->
+			<li>
+				<label for="newsletter">Newsletter</label>
+				<input type="radio" name="newsletter" value="0">
+			</li>
+			<li>
+				<label for="newsletter">Newsletter</label>
+				<input type="radio" name="newsletter" value="A">
+			</li>
+			<li>
+				<button type="submit">Submit</button>
+			</li>
+		</ul>
+	</form>
+</body>
+</html>

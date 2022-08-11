@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="contact-form" data-action="app.php?filtered=true" data-method="POST">
+		<ul>
+			<li>
+				<label>Name</label>
+				<input type="text" value="Kiril" name="name">
+			</li>
+			<li>
+				<label>Email</label>
+				<input type="text" value="hello@nonamez.name" name="email">
+			</li>
+			<li>
+				<textarea cols="30" rows="10" name="content">Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Asperiores, corporis ipsum veritatis. Alias ipsam quia cum atque quas quaerat fugiat quidem odio in? Pariatur, animi, sit modi porro sint ut.</textarea>
+			</li>
+			<li>
+				<select name="lang">
+					<option selected disabled>Please select you lang</option>
+					<option>PHP</option>
+					<option>JS</option>
+					<option>SQL</option>
+				</select>
+			</li>
+			<li>
+				<button type="submit">Submit</button>
+			</li>
+		</ul>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const formBlock = document.getElementById('contact-form');
+
+			const ACTION = formBlock.getAttribute('data-action');
+			const METHOD = formBlock.getAttribute('data-method');
+
+			document.querySelector('button').addEventListener('click', async function() {
+				let elements = document.querySelectorAll('#contact-form [name]');
+
+				const formData = new FormData();
+
+				[...elements].map(element => {
+					formData.append(element.name, element.value);
+				});
+
+				// console.log(elements, [...elements], data);
+
+				let response = await fetch(ACTION, {
+				    method: METHOD,
+				    body: formData
+				});
+
+				response = await response.text();
+
+				console.log(response);
+				// console.log(123);
+			});
+		});
+	</script>
+</body>
+</html>
